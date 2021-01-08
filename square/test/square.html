@@ -49,13 +49,14 @@
         console.log(result);
         console.log(result[0]);
         futhark_context_sync(this.ctx);
+        return result[0];
     }
   }
       var num_text = document.getElementById("square_id").value;
       var num = parseInt(num_text);
       var fc = new FutharkContext();
-      fc.entry_main(num);
-      document.getElementById("result").innerHTML = result[0];
+      var keep = fc.entry_main(num);
+      document.getElementById("result").innerHTML = keep;   
     }
   </script>
   <script src="square.js"></script>
