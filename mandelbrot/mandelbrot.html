@@ -1,0 +1,40 @@
+<!doctype html>
+<html>
+  <label for="square">Number to Square:</label><br>
+  <input type="text" id="screenX" name="screenX"><br>
+  <input type="text" id="screenY" name="screenY"><br>
+  <input type="text" id="depth" name="depth"><br>
+  <input type="text" id="xmin" name="xmin"><br>
+  <input type="text" id="ymin" name="ymin"><br>
+  <input type="text" id="xmax" name="xmax"><br>
+  <input type="text" id="ymax" name="ymax"><br>
+  <button id="action" onclick="myFunction()">Run Mandelbrot!</button>
+  <p id="canvas" width="1000" height="1000"></p>
+  <script>
+    function myFunction() {
+      var screenX = BigInt(parseInt(document.getElementById("screenX").value));
+      var screenY = BigInt(parseInt(document.getElementById("screenY").value));
+      var depth = parseInt(document.getElementById("depth").value);
+      var xmin = parseFloat(document.getElementById("xmin").value);
+      var ymin = parseFloat(document.getElementById("ymin").value);
+      var xmax = parseFloat(document.getElementById("xmax").value);
+      var ymax = parseFloat(document.getElementById("ymax").value);
+      var fc = new FutharkContext();
+      console.log(screenX);
+      console.log(screenY);
+      console.log(depth);
+      console.log(xmin);
+      console.log(ymin);
+      console.log(xmax);
+      console.log(ymax);
+      var result = fc.main(screenX, screenY, depth, xmin, ymin, xmax, ymax);
+      console.log("result", result);
+      var aw = result[0];
+      console.log("arraywrapper", aw);
+      var vals = result.values();
+      console.log("Values", vals);
+      //document.getElementById("result").innerHTML = keep;   
+    }
+  </script>
+  <script src="mandelbrot.js"></script>
+</html>
