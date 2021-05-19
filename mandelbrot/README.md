@@ -6,7 +6,7 @@ futhark wasm --lib mandelbrot.fut
 ```
 Then launch a simple web server
 ```
-python3 http.server 8008
+python3 -m http.server 8008
 ```
 Then open `http://localhost:8008/mandelbrot.html` and try it out. 
 ![gif example](../demos/mandelbrot.gif)
