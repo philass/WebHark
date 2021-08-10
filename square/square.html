@@ -1,0 +1,26 @@
+<!doctype html>
+<html>
+  <label for="square">Number to Square:</label><br>
+  <input type="text" id="square_id" name="square"><br>
+  <button id="action" onclick="myFunction()">Press me!</button>
+
+  <p id="result"></p>
+
+  <script type="module">
+
+    import { newFutharkContext } from './square.mjs';
+    var fc;
+    newFutharkContext().then(x => fc = x);
+
+    function myFunction() {
+      var num_text = document.getElementById("square_id").value;
+      var num = parseInt(num_text);
+      var keep = fc.square(num);
+      document.getElementById("result").innerHTML = keep;   
+    }
+
+    // Give myFunction global scope
+    window.myFunction = myFunction;
+
+  </script>
+</html>
